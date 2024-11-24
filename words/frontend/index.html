@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word filtration</title>
+</head>
+<body>
+    <input />
+    <div id="error"></div>
+    <ul id="results"></ul>
+    <script>
+        const filterEndPoint = 'http://localhost:3003/words'
+        const inputEl = document.querySelector('input');
+
+        const debounceFetchDataFromServer = debounce(fetchDataFromServer, 500);
+        inputEl.addEventListener('input', debounceFetchDataFromServer);
+
+        function debounce(fun, delay) {
+            let timeoutId;
+
+            return () => {
+                clearTimeout(timeoutId);
+                timeoutId = setTimeout(fun, delay);
+            };
+        }
+
+        function clearResults() {
+            const results = document.getElementById("results");
+            results.replaceChildren([]);
+        }
+
+        function showError(errMsg) {
+            const divError = document.getElementById("error");
+            divError.textContent = errMsg;
+        }
+
+        function fetchDataFromServer() {
+            fetch(`${filterEndPoint}?filter=${inputEl.value}`)
+                .then(response => response.json())
+                .then(createList) // data => createList(data)
+                .catch(err => {
+                    clearResults();
+                    showError(err.message);
+                });
+        }
+
+        function createList(words) {
+            clearResults();
+            showError("");
+
+            const results = document.getElementById("results");
+            for(let word of words) { // for(let i = 0; i < words.length; i++) {const word = words[i];
+                const listItem = document.createElement("li");
+                listItem.textContent = word;
+                results.appendChild(listItem);
+            }
+        }
+    </script>
+</body>
+</html>
