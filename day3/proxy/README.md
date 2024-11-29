@@ -41,7 +41,7 @@ Wykonaj powyższe zadanie korzystając z wbudowanego obiektu `Proxy`.
 
 # Zadanie [time]
 ## Opis
-Przygotuj klasę `PersonProxy` w celu logowania czasu wykonania funkcji klasy `Proxy`.
+Przygotuj klasę `PersonProxy` w celu mierzenia czasu wykonania funkcji klasy `Proxy`.
 
 ```javascript
 class Person {
@@ -163,5 +163,8 @@ const mapthOperations = {
 ## Użycie
 ```javascript
 mathOpsProxy.factorial(10); // not cached yet
-mathOpsProxy.factorial(10); // already cached
+mathOpsProxy.factorial(10); // already cached, result taken from cache
 ```
+
+<br>
+

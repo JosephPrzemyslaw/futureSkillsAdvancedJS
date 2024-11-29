@@ -1,4 +1,4 @@
-# Zadanie 1
+# Zadanie [wheather_app]
 ## Opis
 
 Zaimplementuj aplikację wyświetlającą temperaturę w wybranym mieście. Miasto podawane jest w polu tekstowym i zatwierdzane przyciskiem `ENTER`. Skorzystaj z serwisu `https://openweathermap.org`
@@ -47,7 +47,7 @@ https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid={Your API key}&
 <br>
 <br>
 
-# Zadanie 2
+# Zadanie [fetch_with_retry]
 ## Opis
 Zwyczajny `fetch` konczy się wraz z niepowodzeniem wykonania żądania. Nie radzi sobie z takimi problemami jak:
 - **server overload** - `503 Service Unavailable` (wysoki ruch)
@@ -83,4 +83,48 @@ try {
 } catch(err) {
     console.error(`Cannot fetch the resource. Detail message:${err.message}`);
 }
+```
+
+<br>
+
+# Zadanie [net_cache]
+## Opis
+
+Zaimplementuj cachowanie odpowiedzi serwera korzystając z natywnej funkcji `fetch`. Rozważamy żądania typu `GET`. Dane są ważne przez określony czas - patrz parametr `expirationTime`
+
+## Podpowiedź
+
+```javascript
+async function fetchWithCacheProducer(expirationTime) {
+    // initialization
+    return {
+        async get(url) {
+            if (cache.has(url)) {
+                // checks if stored value is not too old
+                // if not, return resolved promise with value
+            }
+            const result = await fetch(url);
+            // store value with time in map and return result
+        },
+        reset() {
+            // clearing map
+        },
+    };
+}
+
+export default fetchWithCacheProducer;
+```
+
+## Zastosowanie
+```javascript
+import fetchWithCacheProducer from "./fetchWithCacheProducer";
+
+const fetchWithCache = fetchWithCacheProducer();
+let url = "http://www.google.com";
+
+const result1 = await fetchWithCache.get(url); // not cached
+const result2 = await fetchWithCache.get(url); // taken from cache
+fetchWithCache.clear();
+const result3 = await fetchWithCache.get(url); // not cached
+//...
 ```
