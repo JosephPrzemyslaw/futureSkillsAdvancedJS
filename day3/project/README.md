@@ -4,7 +4,7 @@
 #### 1) Zapoznaj się z działaniem klasy `EventEmitter` (node) oraz `EventTarget`.
 
 - https://nodejs.org/api/events.html
-- https://developer.mozilla.org/en-US/docs/Web/Events
+- https://developer.mozilla.org/en-US/docs/Web/API/EventTarget
 
 #### 2) Zaimplementuj własną klasę `EventEmitter` z ograniczonym interfejsem:
 ```javascript
@@ -47,7 +47,7 @@ em.dispatch("update", [Date.now()]);
 - tworzenie aliasu posiadając implementację `on`
     ```javascript
     constructor() {
-        this.addEventListener = this.on.bind(this);
+        this.addEventListener = this.on;
         //...
     }
     ```
