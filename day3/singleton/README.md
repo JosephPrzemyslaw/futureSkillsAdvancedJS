@@ -4,12 +4,12 @@ Poniższy kod stara się implementować singleton ale nie jest kompletny. Pokaż
 
 ```js
 class People {
-    #names: [],
-    #ages: [],
+    #names = []
+    #ages = []
     add(person) {
         this.#names.push(person.name);
         this.#ages.push(person.age);
-    },
+    }
     print() {
         for (let i = 0; i < this.#names.length; i ++) {
             console.log(this.#names[i], this.#ages[i]);
@@ -49,6 +49,7 @@ function FileSystemSingleton () {
     // Jaka jest brakująca linia ponizej ?
     // ???
 }
+
 ```
 
 <br>
