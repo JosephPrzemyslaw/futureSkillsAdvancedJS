@@ -11,8 +11,8 @@ class People {
         this.#ages.push(person.age);
     },
     print() {
-        for (let i = 0; i < names.length; i ++) {
-            console.log(names[i], ages[i]);
+        for (let i = 0; i < this.#names.length; i ++) {
+            console.log(this.#names[i], this.#ages[i]);
         }
     }
 };
