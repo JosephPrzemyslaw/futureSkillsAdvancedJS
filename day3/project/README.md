@@ -137,7 +137,7 @@ Przygotuj aplikację wyświetlającą szczegóły na temat pracowników (jeden w
             render() {
                 this.#el.replaceChildren([]);
                 this.#employees.forEach(employee => {
-                    // przygoruj <li> element
+                    // przygotuj <li> element
                     this.#el.appendChild(li);
                 });
             }

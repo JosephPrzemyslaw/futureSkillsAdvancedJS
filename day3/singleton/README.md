@@ -3,7 +3,7 @@
 Poniższy kod stara się implementować singleton ale nie jest kompletny. Pokaż jak można utworzyć wiele obiektów People
 
 ```js
-const People = {
+class People {
     #names: [],
     #ages: [],
     add(person) {
