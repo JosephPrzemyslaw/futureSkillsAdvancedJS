@@ -129,15 +129,15 @@ Wykonaj powyższe zadanie korzystając z wbudowanego obiektu `Proxy`.
 Zaimplementuj proxy dla klasy `Math` tak aby cachować wyniki obliczeń funkcji. Posłuż się natywnym obiektem `Proxy`.
 
 ```javascript
-const mapthOperations = {
+const mathOperations = {
     factorial(n) {
         if (n === 0 || n === 1) {
             return 1;
         }
-        if (n > 2) {
-            return this.factorial(n - 1)
+        if (n >= 2) {
+            return n * this.factorial(n - 1)
         }
-    }
+    },
     pow(base, exponent) {
         if (exponent === 0) {
             return 1
@@ -146,8 +146,7 @@ const mapthOperations = {
             return base;
         }
         return base * this.pow(base, exponent - 1);
-    }
-
+    },
     fibonacci(n) {
         if(n === 1) {
             return 0;
