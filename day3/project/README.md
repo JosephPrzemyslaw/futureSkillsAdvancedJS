@@ -37,7 +37,7 @@ em.dispatch("update", [Date.now()]);
 ```
 
 #### Podpowiedzi
-- strutura mapująca nazwę zdarzenia na zbiór powiązanych funkcji:
+- struktura mapująca nazwę zdarzenia na zbiór powiązanych funkcji:
     ```javascript
     class EventEmitter {
         #eventToCbs = new Map;
@@ -64,7 +64,7 @@ once(eventName:string, (...args: any[]) => any)
 
 #### Zaimplementuj model `EmployeeModel` o następujących cechach:
 - korzysta z interfejsu klasy `EventEmitter`
-- przechouwje dane na temat pracowników
+- przechowuje dane na temat pracowników
 - dane pobierane są z serwisu `https://hub.dummyapis.com/employee?noofRecords=[recordNo]&idStarts=[employeeStartId]`
 - model w tym celu wystawia metodę `update`
     ```typescript

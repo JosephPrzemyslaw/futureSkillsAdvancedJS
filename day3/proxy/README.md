@@ -1,6 +1,6 @@
 # Zadanie [logging]
 ## Opis
-Przygotuj klasę `PersonProxy` w celu logowania jak często funckje klasy `Proxy` są wołane.
+Przygotuj klasę `PersonProxy` w celu logowania jak często funkcje klasy `Proxy` są wołane.
 
 ```javascript
 class Person {
@@ -84,7 +84,7 @@ Wykonaj powyższe zadanie korzystając z wbudowanego obiektu `Proxy`.
 ## Opis
 Przygotuj klasę `PersonProxy` działającą w imieniu klasy `Person`. Zaimplementuj walidację danych
 - dla wieku -> <1; 120>
-- dla imienia -> same litery, przynajmnije trzy znaki
+- dla imienia -> same litery, przynajmniej trzy znaki
 
 Dokonaj parsowania danych tak aby wiek był ustawiany jako liczba.
 
@@ -155,7 +155,7 @@ const mapthOperations = {
         if (n === 2) {
             return 1;
         }
-        return this.fobonacci(n - 1) + this.fibonacci(n - 2);
+        return this.fibonacci(n - 1) + this.fibonacci(n - 2);
     }
 }
 ```
